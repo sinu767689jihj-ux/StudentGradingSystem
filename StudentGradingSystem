@@ -1,0 +1,28 @@
+import java.util.Scanner;
+interface Function<T,R>
+{
+    R apply(T t);
+}
+class StudentGradingSystem
+{
+    public static void main(String[] args)
+    {
+        Function<Integer,String> grade=(marks)->
+        {
+            if(marks>90)
+                return "First Class Student A+";
+            else if(marks>80&&marks<=90)
+                return "Second Class Student A";
+            else if(marks>65&&marks<=80)
+                return "Thrid Class Student B+";
+            else if(marks>50&&marks<=65)
+                return "Fouth Class Student B";
+            else
+                return "Failure Students";
+        };
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the Marks:");
+        int m=sc.nextInt();
+        System.out.println(grade.apply(m));
+    }
+}
